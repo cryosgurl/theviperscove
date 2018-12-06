@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
+import { LoginService } from './services/login.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,7 +14,7 @@ const appRoutes: Routes = [
     redirectTo: '/login',
     pathMatch: 'full'
   },
-  //{ path: '**', component: PageNotFoundComponent }
+  // { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -21,12 +24,15 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(
         appRoutes,
         { enableTracing: false } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [
+        LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

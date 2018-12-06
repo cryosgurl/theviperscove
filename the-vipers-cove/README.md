@@ -1,5 +1,16 @@
 # TheVipersCove
 
+- Install Node
+
+- Run `npm install`
+
+- Install Nodemon
+`npm install -g nodemon`
+
+- Run `ng serve` to start app
+- Run `npm run server` to start server
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
 
 ## Development server
