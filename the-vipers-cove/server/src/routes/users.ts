@@ -45,13 +45,13 @@ router.post('/authenticate', cors(corsOptions), (req, res, next) => {
                 throw error;
             }
             if (isMatch) {
-                const token = jwt.sign(user, config.secret, {
-                    expiresIn: 60400 // 1 week
+                const token = jwt.sign(user.toJSON(), config.secret, {
+                    expiresIn: 604800 // 1 week
                 });
 
                 res.json({
                     success: true,
-                    token: 'JWT' + token,
+                    token: 'JWT ' + token,
                     user: {
                         id: user._id,
                         name: user.name,
@@ -67,12 +67,8 @@ router.post('/authenticate', cors(corsOptions), (req, res, next) => {
 });
 
 // profile
-router.get('/profile', cors(corsOptions), (req, res, next) => {
-    res.send(
-        {hello: [
-            1, 2
-        ]}
-    );
+router.get('/profile', passport.authenticate('jwt', {session: false}), cors(corsOptions), (req, res, next) => {
+    res.json({user: req.user});
 });
 
 // validate
