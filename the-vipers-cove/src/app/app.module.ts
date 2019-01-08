@@ -2,25 +2,34 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
-import { LoginService } from './services/login.service';
-
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+
+import { LoginComponent } from './components/login/login.component';
+import { LoginService } from './components/login/login.service';
+import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    DashboardComponent,
+    NavbarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

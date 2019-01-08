@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { LoginService } from '../services/login.service';
-import { Login } from '../interface/login';
+import { LoginService } from './login.service';
+import { Login } from '../../interface/login';
 
 @Component({
     selector: 'app-login',
