@@ -1,16 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './components/login/login.component';
-import { LoginService } from './components/login/login.service';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+
+import { ValidateService } from './services/validate.service';
+import { AuthService } from './services/auth.service';
+import { LoginService } from './services/login.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,6 +37,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot(
         appRoutes,
@@ -40,7 +45,9 @@ const appRoutes: Routes = [
     )
   ],
   providers: [
-        LoginService
+        LoginService,
+        ValidateService,
+        AuthService
   ],
   bootstrap: [AppComponent]
 })

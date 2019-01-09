@@ -1,8 +1,16 @@
 <div class="login">
+    <span class="login_title">login</span>
     <div class="login-container">
-        <span class="login-container_title">Login</span>
-        <span class="login-container_text">Username:</span><input class="login-container_input username" type="text" name="username">
-        <span class="login-container_text">password:</span><input class="login-container_input" type="password" name="password">
-        <button type="submit" name="submit">submit</button>
+        <form (submit)="onLoginSubmit()" class="login-subcontainer">
+            <div class="form-group">
+                <label class="login-container_text">Username:</label>
+                <input class="login-container_input text-font " type="text" [(ngModel)]="username" name="username">
+            </div>
+            <div class="form-group">
+                <label class="login-container_text">Password:</label>
+                <input class="login-container_input" type="password" [(ngModel)]="password" name="password">
+            </div>
+            <input type="submit" name="submit" value="login">
+        </form>
     </div>
 </div>

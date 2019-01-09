@@ -1,0 +1,47 @@
+@import "../../../assets/colors.scss";
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #223;
+    &_title {
+        font-family: Overwatch;
+        color: $OWorange;
+        font-size: 5em;
+    }
+    &-container {
+        display: flex;
+        justify-content: center;
+        min-width: 400px;
+        width: 40%;
+        background-color: #FFF;
+        border: 2px solid $OWorange;
+        border-radius: 1vh;
+
+        .register-subcontainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 60%;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        &_text {
+            align-self: flex-start;
+            font-size: 1.5em;
+        }
+        &_input {
+            font-size: 1.2em;
+            border-radius: 1vh;
+            width: 100%;
+        }
+    }
+}

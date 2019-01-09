@@ -1,4 +1,6 @@
 export interface Login {
-    username: string[];
-    password: any[];
+    msg: string[];
+    success: boolean[];
+    token: any[];
+    user: any[];
 }

@@ -1,8 +1,10 @@
+@import "../../../assets/colors.scss";
 .nav {
     width: 100%;
     height: 6%;
-    background-color: #43484c;
+    background-color: $OWgrey;
     border-bottom: 1px solid lightgrey;
+    font-family: OverwatchText;
 
     &-container {
         height: 100%;
@@ -27,16 +29,16 @@
             &:hover {
                 .nav-container_hamburger-img {
                     path {
-                        fill: #218ffe;
+                        fill: $OWblue;
                     }
                 }
             }
             &:active {
-                background-color: #f99e1a;
+                background-color: $OWorange;
                 transition: background-color 0.15s ease-in;
                 .nav-container_hamburger-img {
                     path {
-                        fill: #43484c;
+                        fill: $OWgrey;
                         transition: fill 0.15s ease-in;
                     }
                 }
@@ -44,19 +46,20 @@
         }
         &_header {
             margin-right: auto;
-            color: #f99e1a;
+            color: $OWorange;
+            font-family: Overwatch;
             font-size: 4em;
             user-select: none;
         }
-        &_login, &_register {
-            color: #f99e1a;
+        &_login, &_register, &_logout {
+            color: $OWorange;
             cursor: pointer;
             margin: 0 5px;
             font-size: 1.3em;
             user-select: none;
             text-decoration: none;
             &:hover {
-                color: #218ffe;
+                color: $OWblue;
             }
         }
     }

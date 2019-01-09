@@ -14,5 +14,8 @@
         <div class="nav-container_register">
             <a [routerLinkActive]="['active']" [routerLink]="['/register']">register</a>
         </div>
+        <div class="nav-container_logout">
+            <a (click)="onLogoutClick()" href="#">logout</a>
+        </div>
     </div>
 </nav>
