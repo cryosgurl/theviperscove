@@ -1,0 +1,70 @@
+@import "../../../assets/colors.scss";
+.nav {
+    width: 100%;
+    height: 6%;
+    background-color: $OWgrey;
+    border-bottom: 1px solid lightgrey;
+    font-family: OverwatchText;
+
+    &-container {
+        height: 100%;
+        padding: 0 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        &_hamburger {
+            margin-right: auto;
+            cursor: pointer;
+            height: 2em;
+            width: 2em;
+            border-radius: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &-img {
+                height: 20px;
+            }
+            &:hover {
+                .nav-container_hamburger-img {
+                    path {
+                        fill: $OWblue;
+                    }
+                }
+            }
+            &:active {
+                background-color: $OWorange;
+                transition: background-color 0.15s ease-in;
+                .nav-container_hamburger-img {
+                    path {
+                        fill: $OWgrey;
+                        transition: fill 0.15s ease-in;
+                    }
+                }
+            }
+        }
+        &_header {
+            margin-right: auto;
+            color: $OWorange;
+            font-family: Overwatch;
+            font-size: 4em;
+            user-select: none;
+        }
+        &_login, &_register, &_logout {
+            color: $OWorange;
+            cursor: pointer;
+            margin: 0 5px;
+            font-size: 1.3em;
+            user-select: none;
+            text-decoration: none;
+            &:hover {
+                color: $OWblue;
+            }
+        }
+    }
+    a {
+        text-decoration: none;
+        color:inherit;
+    }
+}
