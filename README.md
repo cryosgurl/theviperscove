@@ -29,6 +29,7 @@ Middleware:
 - PassportJWT
 - bcryptjs
 - body-parser
+- JwtHelperService
 
 This app also includes:
 - Karma

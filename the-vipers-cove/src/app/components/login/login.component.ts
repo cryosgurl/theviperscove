@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
                 console.log('you are now logged in');
                 this.router.navigate(['/dashboard']);
             } else {
-                console.log(data);
+                console.log(data.msg);
                 this.router.navigate(['/login']);
             }
         });

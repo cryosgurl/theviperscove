@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -16,14 +17,19 @@ import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
 import { LoginService } from './services/login.service';
 
+import { AuthGuard } from './guards/auth.guard';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: '**', component: HomeComponent }
 ];
+export function tokenGetter() {
+  return localStorage.getItem('id_token');
+}
 
 @NgModule({
   declarations: [
@@ -39,6 +45,12 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    JwtModule.forRoot({
+        config: {
+            tokenGetter: tokenGetter,
+            whitelistedDomains: ['http://localhost:4200']
+        }
+    }),
     RouterModule.forRoot(
         appRoutes,
         { enableTracing: false } // <-- debugging purposes only
@@ -47,7 +59,8 @@ const appRoutes: Routes = [
   providers: [
         LoginService,
         ValidateService,
-        AuthService
+        AuthService,
+        AuthGuard
   ],
   bootstrap: [AppComponent]
 })
