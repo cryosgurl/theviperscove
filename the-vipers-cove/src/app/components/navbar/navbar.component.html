@@ -8,14 +8,20 @@
         <div class="nav-container_header">
             <a [routerLink]="['/']">Power Nappers</a>
         </div>
+        <div class="nav-container_dashboard">
+            <a *ngIf="!authService.tokenIsExpired()"  [routerLinkActive]="['active']" [routerLink]="['/dashboard']">dashboard</a>
+        </div>
+        <div class="nav-container_profile">
+            <a *ngIf="!authService.tokenIsExpired()" [routerLinkActive]="['active']" [routerLink]="['/profile']">profile</a>
+        </div>
         <div class="nav-container_login">
-            <a [routerLinkActive]="['active']" [routerLink]="['/login']">login</a>
+            <a *ngIf="authService.tokenIsExpired()" [routerLinkActive]="['active']" [routerLink]="['/login']">login</a>
         </div>
         <div class="nav-container_register">
-            <a [routerLinkActive]="['active']" [routerLink]="['/register']">register</a>
+            <a *ngIf="authService.tokenIsExpired()" [routerLinkActive]="['active']" [routerLink]="['/register']">register</a>
         </div>
         <div class="nav-container_logout">
-            <a (click)="onLogoutClick()" href="#">logout</a>
+            <a *ngIf="!authService.tokenIsExpired()" (click)="onLogoutClick()" href="#">logout</a>
         </div>
     </div>
 </nav>
