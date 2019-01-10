@@ -33,9 +33,10 @@ export class AuthService {
         getProfile() {
             const headers = new HttpHeaders();
             this.loadToken();
-            headers.append('Autherization', this.authToken);
+            headers.append('Authorization', this.authToken);
             headers.append('Content-type', 'application/json');
-            return this.http.get<Login>(this.profileApi, {headers: headers});
+            console.log(headers);
+            return this.http.get(this.profileApi, {headers: headers});
         }
 
         storeUserData(token, user) {
